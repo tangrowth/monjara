@@ -10,11 +10,27 @@
         <h1 class='title'>{{ $post->title }}</h1>
         <div class="content">
             <div class="content_post">
-                <h2>本文</h2>
                 <P>{{ $post->body }}</P>
             </div>
         </div>
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
+        <form action="/posts/{{ $post->id }}" id="form" method="post" style="display:inline">
+            @csrf
+            @method('delete')
+        </form>
+        <button id="btn" type="submit">delete</button>
+        
+        <script>
+            const btn=document.getElementById('btn');
+            const form=document.getElementById('form');
+            btn.addEventListener('click', function(){
+                const choice = window.confirm('本当に削除しますか？\r\nこの作業は取り消せません。');
+                if(choice){
+                    form.submit();
+                }
+            });
+        </script>
+        
         <div class='footer'>
             <a href="/">戻る</a>
         </div>
