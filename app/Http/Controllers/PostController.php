@@ -31,6 +31,8 @@ class PostController extends Controller
     
     public function update(PostRequest $request, Post $post)
     {
+
+
         $input_post = $request['post'];
         $post->fill($input_post)->save();
 
