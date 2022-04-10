@@ -13,6 +13,7 @@
                 <P>{{ $post->body }}</P>
             </div>
         </div>
+        <a href="">{{ $post->category->name }}</a>
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
         <form action="/posts/{{ $post->id }}" id="form" method="post" style="display:inline">
             @csrf
