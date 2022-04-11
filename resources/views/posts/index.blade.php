@@ -1,9 +1,13 @@
 <!DOCTYPE html>
+@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+
+@section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <title>Blog</title>
     </head>
     <body>
+        <a>{{Auth::user()->name}}</a>
         <h1>Blog Name</h1>
         <div class='posts'>
             @foreach ($posts as $post)
@@ -20,3 +24,4 @@
             [<a href='/posts/create'>create</a>]
     </body>
 </html>
+@endsection

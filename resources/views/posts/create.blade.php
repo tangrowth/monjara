@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+@extends('layouts.app')
+
+@section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -7,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        <a>{{Auth::user()->name}}</a>
         <h1>Blog name</h1>
         <form action="/posts" method="POST">
             @csrf
@@ -33,3 +37,4 @@
         <div class="back">[<a href="/">back</a>]</div>
     </body>
 </html>
+@endsection
